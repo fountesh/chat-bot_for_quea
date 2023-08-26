@@ -4,7 +4,7 @@ import telebot
 from telebot import types
 from notifiers import get_notifier
 
-quea_list = ["ти і я", "він і вона", "воно і Даша"]
+quea_list = ["first", "second", "third"]
 global i
 i = 0
 
