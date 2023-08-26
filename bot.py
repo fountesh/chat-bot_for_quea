@@ -1,4 +1,4 @@
-bot_token = "6346817681:AAGaRprnqrN17gygtgUV7BGeJsXfl9TIBS4"
+bot_token = "token"
 
 import telebot
 from telebot import types
