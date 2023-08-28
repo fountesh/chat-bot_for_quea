@@ -39,7 +39,7 @@ def react_on_message(message):
     def answer(call):
         global i
         if call.data == "Виходить":
-            bot.send_message(message.chat.id, "Чергові:\n" + quea_list[i])
+            bot.send_message(call.message.chat.id, "Чергові:\n" + quea_list[i])
             i += 1
             if i >= 3:
                 i = 0
@@ -47,6 +47,6 @@ def react_on_message(message):
             i += 1
             if i >= 3:
                 i = 0
-            bot.send_message(message.chat.id, "Тоді сьогодні чергові:\n" + quea_list[i], reply_markup=markup_inline)
+            bot.send_message(call.message.chat.id, "Тоді сьогодні чергові:\n" + quea_list[i], reply_markup=markup_inline)
 
 bot.infinity_polling(none_stop= True)
