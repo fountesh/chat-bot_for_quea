@@ -1,11 +1,11 @@
-bot_token = "Bot_Token"
+bot_token = "6346817681:AAGaRprnqrN17gygtgUV7BGeJsXfl9TIBS4"
 
 import telebot
 import time
 from telebot import types
 from notifiers import get_notifier
 
-quea_list = ["a", "b", "c"]
+quea_list = ["ти і я", "він і вона", "воно і Даша"]
 global i
 i = 0
 
@@ -21,7 +21,7 @@ def work(message):
     who = types.KeyboardButton("Обрати чергових")
     see = types.KeyboardButton("Дізнатися хто черговий")
     markup.add(who, see)
-    bot.send_message(message.chat.id, "Працюю", reply_markup=markup,)
+    bot.send_message(message.chat.id, "Працюю", reply_markup=markup)
 
 @bot.message_handler(content_types="text")
 def react_on_message(message):
@@ -39,7 +39,7 @@ def react_on_message(message):
     def answer(call):
         global i
         if call.data == "Виходить":
-            bot.send_message(call.message.chat.id, "Чергові:\n" + quea_list[i])
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.id, text="Чергові:\n" + quea_list[i])
             i += 1
             if i >= 3:
                 i = 0
@@ -47,6 +47,6 @@ def react_on_message(message):
             i += 1
             if i >= 3:
                 i = 0
-            bot.send_message(call.message.chat.id, "Тоді сьогодні чергові:\n" + quea_list[i], reply_markup=markup_inline)
+            bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.id, text= "Тоді сьогодні чергові:\n" + quea_list[i], reply_markup=markup_inline)
 
 bot.infinity_polling(none_stop= True)
