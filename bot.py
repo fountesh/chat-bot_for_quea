@@ -1,11 +1,11 @@
-bot_token = "6346817681:AAGaRprnqrN17gygtgUV7BGeJsXfl9TIBS4"
+bot_token = "Bot_Token"
 
 import telebot
 import time
 from telebot import types
 from notifiers import get_notifier
 
-quea_list = ["ти і я", "він і вона", "воно і Даша"]
+quea_list = ["a", "b", "c"]
 global i
 i = 0
 
@@ -17,7 +17,7 @@ def start_function(message):
 
 @bot.message_handler(commands=['work'])
 def work(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     who = types.KeyboardButton("Обрати чергових")
     see = types.KeyboardButton("Дізнатися хто черговий")
     markup.add(who, see)
